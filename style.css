@@ -5,27 +5,21 @@ box-sizing:border-box;
 }
 
 body{
-
 background:#050505;
 font-family:Arial,sans-serif;
 overflow-x:hidden;
-
 }
 
 .hero-container{
-
 position:relative;
 width:100%;
 max-width:1400px;
 margin:auto;
-
 }
 
 .hero-image{
-
 width:100%;
 display:block;
-
 }
 
 /* HOTSPOTS */
@@ -34,8 +28,9 @@ display:block;
 
 position:absolute;
 cursor:pointer;
-border-radius:20px;
 z-index:30;
+
+border-radius:18px;
 
 animation:pulseGlow 1s infinite alternate;
 
@@ -45,10 +40,11 @@ animation:pulseGlow 1s infinite alternate;
 
 .engine{
 
-top:47%;
-left:5%;
-width:20%;
-height:15%;
+top:49.5%;
+left:8.5%;
+
+width:11%;
+height:7%;
 
 }
 
@@ -56,10 +52,11 @@ height:15%;
 
 .oil{
 
-top:47%;
-left:28%;
-width:20%;
-height:15%;
+top:49.5%;
+left:31.5%;
+
+width:11%;
+height:7%;
 
 }
 
@@ -67,10 +64,11 @@ height:15%;
 
 .battery{
 
-top:47%;
-left:51%;
-width:20%;
-height:15%;
+top:49.5%;
+left:54.5%;
+
+width:11%;
+height:7%;
 
 }
 
@@ -78,10 +76,11 @@ height:15%;
 
 .temp{
 
-top:47%;
-left:74%;
-width:20%;
-height:15%;
+top:49.5%;
+left:77%;
+
+width:11%;
+height:7%;
 
 }
 
@@ -93,7 +92,7 @@ from{
 
 box-shadow:
 0 0 8px rgba(255,0,0,.4),
-0 0 15px rgba(255,80,0,.5);
+0 0 18px rgba(255,120,0,.5);
 
 }
 
@@ -101,8 +100,8 @@ to{
 
 box-shadow:
 0 0 20px rgba(255,0,0,.95),
-0 0 40px rgba(255,80,0,1),
-0 0 70px rgba(255,180,0,1);
+0 0 45px rgba(255,120,0,1),
+0 0 75px rgba(255,220,0,1);
 
 }
 
@@ -121,7 +120,7 @@ width:46%;
 height:18%;
 
 background:
-rgba(0,0,0,.85);
+rgba(0,0,0,.86);
 
 border:
 3px solid #99ff00;
@@ -183,15 +182,11 @@ padding:10px;
 }
 
 .response-box h2{
-
 font-size:12px;
-
 }
 
 .response-box p{
-
 font-size:9px;
-
 }
 
 }
