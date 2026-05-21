@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Northeast Auto Solutions</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#050505;
+  color:white;
+}
+
+.hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  background:url('hero-image.jpg') center center/cover no-repeat;
+}
+
+/* DARK OVERLAY */
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
+
+.content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:20px;
+}
+
+/* HEADER */
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#fff;
+}
+
+.phone{
+  color:#ff3c3c;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* HERO TEXT */
+
+.hero-text{
+  margin-top:20px;
+  margin-bottom:40px;
+}
+
+.hero-text h1{
+  font-size:58px;
+  line-height:1;
+  font-weight:900;
+}
+
+.hero-text .red{
+  color:#ff2b2b;
+}
+
+.hero-text p{
+  margin-top:18px;
+  font-size:24px;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  background:rgba(15,15,15,.95);
+  border:2px solid #333;
+  border-radius:30px;
+  padding:30px 20px;
+  box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
+.dashboard-title{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:12px;
+  font-weight:900;
+}
+
+.dashboard-sub{
+  text-align:center;
+  color:#bbb;
+  margin-bottom:30px;
+  font-size:20px;
+}
+
+/* LIGHT GRID */
+
+.light-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+/* BUTTON */
+
+.light{
+  background:#121212;
+  border:2px solid #333;
+  border-radius:18px;
+  padding:20px 10px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+  min-height:150px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* FLASHING */
+
+.flash{
+  animation:flash 1.1s infinite;
+}
+
+@keyframes flash{
+  0%{
+    box-shadow:0 0 5px #ffb300;
+    border-color:#ffb300;
+  }
+
+  50%{
+    box-shadow:0 0 25px #ffb300;
+    border-color:#fff;
+  }
+
+  100%{
+    box-shadow:0 0 5px #ffb300;
+    border-color:#ffb300;
+  }
+}
+
+.light:hover{
+  transform:scale(1.03);
+}
+
+.icon{
+  font-size:52px;
+  margin-bottom:10px;
+}
+
+.label{
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* RESPONSE */
+
+.response{
+  margin-top:30px;
+  background:#0f0f0f;
+  border-left:6px solid #ff2b2b;
+  border-radius:20px;
+  padding:25px;
+  min-height:240px;
+}
+
+.response h2{
+  color:#ffcc00;
+  margin-bottom:15px;
+  font-size:34px;
+}
+
+.response p{
+  margin-bottom:15px;
+  line-height:1.5;
+  font-size:20px;
+}
+
+/* ACTION BUTTONS */
+
+.actions{
+  display:grid;
+  gap:15px;
+  margin-top:20px;
+}
+
+.action-btn{
+  display:block;
+  text-align:center;
+  padding:18px;
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  font-size:20px;
+}
+
+.call{
+  background:#ff2b2b;
+}
+
+.text{
+  background:#333;
+}
+
+.tow{
+  background:#cc7a00;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .hero-text h1{
+    font-size:42px;
+  }
+
+  .light-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero{
+    min-height:auto;
+  }
+
+  .hero-text h1{
+    font-size:34px;
+  }
+
+  .hero-text p{
+    font-size:18px;
+  }
+
+  .dashboard-title{
+    font-size:28px;
+  }
+
+  .dashboard-sub{
+    font-size:16px;
+  }
+
+  .light{
+    min-height:120px;
+    padding:15px 8px;
+  }
+
+  .icon{
+    font-size:38px;
+  }
+
+  .label{
+    font-size:16px;
+  }
+
+  .response h2{
+    font-size:26px;
+  }
+
+  .response p{
+    font-size:16px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="content">
+
+<div class="topbar">
+<div class="logo">NORTHEAST AUTO SOLUTIONS</div>
+<div class="phone">330-593-CARS</div>
+</div>
+
+<div class="hero-text">
+<h1>
+REAL PEOPLE.<br>
+REAL SOLUTIONS.<br>
+<span class="red">REAL FAST.</span>
+</h1>
+
+<p>
+Tap the warning light that came on.
+</p>
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+<div class="dashboard-title">
+WHAT'S YOUR DASH LIGHT TELLING YOU?
+</div>
+
+<div class="dashboard-sub">
+Tap a warning light below for instant AI help.
+</div>
+
+<div class="light-grid">
+
+<div class="light flash" onclick="showIssue('engine')">
+<div class="icon">⚠️</div>
+<div class="label">CHECK ENGINE</div>
+</div>
+
+<div class="light flash" onclick="showIssue('oil')">
+<div class="icon">🛢️</div>
+<div class="label">OIL PRESSURE</div>
+</div>
+
+<div class="light flash" onclick="showIssue('battery')">
+<div class="icon">🔋</div>
+<div class="label">BATTERY</div>
+</div>
+
+<div class="light flash" onclick="showIssue('temp')">
+<div class="icon">🌡️</div>
+<div class="label">ENGINE TEMP</div>
+</div>
+
+<div class="light flash" onclick="showIssue('tire')">
+<div class="icon">⭕</div>
+<div class="label">TIRE PRESSURE</div>
+</div>
+
+<div class="light flash" onclick="showIssue('brake')">
+<div class="icon">🛑</div>
+<div class="label">BRAKE WARNING</div>
+</div>
+
+<div class="light flash" onclick="showIssue('abs')">
+<div class="icon">ABS</div>
+<div class="label">ABS SYSTEM</div>
+</div>
+
+<div class="light flash" onclick="showIssue('traction')">
+<div class="icon">🚗</div>
+<div class="label">TRACTION CONTROL</div>
+</div>
+
+</div>
+
+<!-- RESPONSE -->
+
+<div class="response" id="responseBox">
+
+<h2>AI Diagnostic Response</h2>
+
+<p>
+Tap one of the flashing dashboard lights above.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const shopPhone = "3305932277";
+
+const issues = {
+
+engine:{
+title:"Check Engine Light",
+text:"Usually emissions, ignition, sensor, or fuel-system related. Safe short-term if steady. Stop driving if flashing."
+},
+
+oil:{
+title:"Oil Pressure Warning",
+text:"Possible low oil pressure or lubrication failure. Stop driving ASAP to avoid engine damage."
+},
+
+battery:{
+title:"Battery Warning",
+text:"Charging system issue. Battery may die soon. Alternator or belt problem possible."
+},
+
+temp:{
+title:"Engine Temperature",
+text:"Engine may be overheating. Pull over safely and allow the engine to cool."
+},
+
+tire:{
+title:"Tire Pressure Warning",
+text:"One or more tires may be underinflated or leaking."
+},
+
+brake:{
+title:"Brake Warning",
+text:"Brake system issue possible. Check brake fluid and braking performance immediately."
+},
+
+abs:{
+title:"ABS System Warning",
+text:"Anti-lock braking system issue detected. Normal braking may still work."
+},
+
+traction:{
+title:"Traction Control Warning",
+text:"Traction/stability system issue or slippery conditions detected."
+}
+
+};
+
+function showIssue(type){
+
+const issue = issues[type];
+
+document.getElementById("responseBox").innerHTML = `
+
+<h2>${issue.title}</h2>
+
+<p>${issue.text}</p>
+
+<div class="actions">
+
+<a class="action-btn call"
+href="tel:${shopPhone}">
+CALL THE SHOP
+</a>
+
+<a class="action-btn text"
+href="sms:${shopPhone}?body=Hi,%20my%20${encodeURIComponent(issue.title)}%20came%20on.">
+TEXT THE SHOP
+</a>
+
+<a class="action-btn tow"
+href="tel:${shopPhone}">
+CALL FOR TOW HELP
+</a>
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
