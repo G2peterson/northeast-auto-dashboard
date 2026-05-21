@@ -1,180 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Northeast Auto Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northeast Auto Solutions</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #050505;
-  color: white;
+body{
+    background:#050505;
+    font-family:Arial,sans-serif;
+    color:white;
 }
 
-.hero-image {
-  width: 100%;
-  display: block;
+.hero-wrapper{
+    position:relative;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
 }
 
-.dashboard {
-  padding: 22px;
-  background: #080808;
+.hero-image{
+    width:100%;
+    display:block;
 }
 
-.dashboard h1 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 8px;
+/* CLICK ZONES */
+
+.light-zone{
+    position:absolute;
+    cursor:pointer;
+    border-radius:14px;
+    transition:.25s;
 }
 
-.dashboard p {
-  text-align: center;
-  color: #ccc;
-  margin-bottom: 18px;
+.light-zone:hover{
+    box-shadow:0 0 20px #ffb300;
 }
 
-.light-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 700px;
-  margin: auto;
+/* CHECK ENGINE */
+#engineZone{
+    top:36%;
+    left:4%;
+    width:18%;
+    height:14%;
 }
 
-.light {
-  min-height: 120px;
-  background: #111;
-  border: 2px solid #ffb300;
-  border-radius: 16px;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  animation: pulse 1.1s infinite;
+/* OIL */
+#oilZone{
+    top:36%;
+    left:26%;
+    width:18%;
+    height:14%;
 }
 
-.light span {
-  display: block;
-  font-size: 36px;
-  margin-bottom: 8px;
+/* BATTERY */
+#batteryZone{
+    top:36%;
+    left:48%;
+    width:18%;
+    height:14%;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 6px #ffb300; }
-  50% { box-shadow: 0 0 24px #ffb300; }
-  100% { box-shadow: 0 0 6px #ffb300; }
+/* TEMP */
+#tempZone{
+    top:36%;
+    left:70%;
+    width:18%;
+    height:14%;
 }
 
-.response {
-  max-width: 700px;
-  margin: 22px auto 0;
-  padding: 20px;
-  background: #111;
-  border-left: 6px solid #e22;
-  border-radius: 14px;
+/* RESPONSE PANEL */
+
+.response-panel{
+    position:absolute;
+    bottom:4%;
+    left:3%;
+    width:94%;
+    min-height:22%;
+    background:rgba(0,0,0,.82);
+    border:2px solid #222;
+    border-radius:18px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
-.response h2 {
-  color: #ffcc00;
-  margin-bottom: 12px;
+.response-title{
+    font-size:clamp(18px,2vw,32px);
+    color:#ffcc00;
+    margin-bottom:10px;
+    font-weight:bold;
 }
 
-.response p {
-  text-align: left;
-  color: white;
-  line-height: 1.5;
+.response-text{
+    font-size:clamp(12px,1.2vw,18px);
+    line-height:1.5;
+    color:#eee;
+    margin-bottom:16px;
 }
 
-.actions {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
+/* BUTTONS */
+
+.action-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
-.actions a {
-  padding: 16px;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+.action-btn{
+    flex:1;
+    min-width:150px;
+    text-align:center;
+    padding:14px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:.2s;
 }
 
-.call { background: #e22; }
-.text { background: #333; }
-.tow { background: #cc7a00; }
-
-@media (max-width: 520px) {
-  .dashboard h1 { font-size: 24px; }
-  .light { font-size: 15px; min-height: 105px; }
+.action-btn:hover{
+    transform:scale(1.03);
 }
+
+.call-btn{
+    background:#e32626;
+}
+
+.text-btn{
+    background:#444;
+}
+
+.tow-btn{
+    background:#d88900;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .response-panel{
+        bottom:2%;
+        padding:10px;
+    }
+
+    .action-row{
+        flex-direction:column;
+    }
+
+    .action-btn{
+        min-width:100%;
+        font-size:14px;
+        padding:10px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<img class="hero-image" src="heroimage.png" alt="Northeast Auto Solutions">
+<div class="hero-wrapper">
 
-<section class="dashboard">
-  <h1>What's Your Dash Light Telling You?</h1>
-  <p>Tap the warning light that came on.</p>
+    <!-- YOUR IMAGE -->
+    <img src="hero-dash-image.png" class="hero-image">
 
-  <div class="light-grid">
-    <button class="light" onclick="showIssue('engine')"><span>⚠️</span>Check Engine</button>
-    <button class="light" onclick="showIssue('oil')"><span>🛢️</span>Oil Pressure</button>
-    <button class="light" onclick="showIssue('battery')"><span>🔋</span>Battery</button>
-    <button class="light" onclick="showIssue('temp')"><span>🌡️</span>Engine Temp</button>
-  </div>
+    <!-- CLICK ZONES -->
+    <div id="engineZone" class="light-zone" onclick="showIssue('engine')"></div>
 
-  <div class="response" id="responseBox">
-    <h2>AI Diagnostic Response</h2>
-    <p>Tap one of the flashing dashboard lights above for a quick explanation and next step.</p>
-  </div>
-</section>
+    <div id="oilZone" class="light-zone" onclick="showIssue('oil')"></div>
+
+    <div id="batteryZone" class="light-zone" onclick="showIssue('battery')"></div>
+
+    <div id="tempZone" class="light-zone" onclick="showIssue('temp')"></div>
+
+    <!-- RESPONSE PANEL -->
+    <div class="response-panel" id="responsePanel">
+
+        <div class="response-title">
+            Tap A Dashboard Warning Light
+        </div>
+
+        <div class="response-text">
+            Instant AI diagnostic guidance and next steps.
+        </div>
+
+        <div class="action-row">
+
+            <a class="action-btn call-btn"
+               href="tel:3305932277">
+               Call Northeast Auto
+            </a>
+
+            <a class="action-btn text-btn"
+               href="sms:3305932277">
+               Text The Shop
+            </a>
+
+            <a class="action-btn tow-btn"
+               href="tel:3305932277">
+               Call For Tow
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
 
 <script>
-const shopPhone = "3305932277";
 
 const issues = {
-  engine: {
-    title: "Check Engine Light",
-    text: "This usually means the vehicle computer detected an emissions, ignition, fuel, or sensor problem. If the light is steady, short-distance driving may be okay. If it is flashing, stop driving and call for help."
-  },
-  oil: {
-    title: "Oil Pressure Warning",
-    text: "This can mean low oil pressure or engine lubrication trouble. Do not keep driving. Low oil pressure can damage the engine quickly."
-  },
-  battery: {
-    title: "Battery Warning",
-    text: "This usually points to a battery, alternator, belt, or charging system problem. The vehicle may shut off soon."
-  },
-  temp: {
-    title: "Engine Temperature Warning",
-    text: "The engine may be overheating. Pull over safely, shut the vehicle off, and let it cool before continuing."
-  }
+
+engine: {
+title: "Check Engine Warning",
+text: "Usually emissions, ignition, fuel, or sensor related. If flashing, stop driving and call immediately."
+},
+
+oil: {
+title: "Oil Pressure Warning",
+text: "Possible low oil pressure or lubrication issue. Continuing to drive may damage the engine."
+},
+
+battery: {
+title: "Battery Warning",
+text: "Charging system issue detected. Vehicle may shut off soon if alternator or battery fails."
+},
+
+temp: {
+title: "Engine Temperature Warning",
+text: "Vehicle may be overheating. Pull over safely and allow the engine to cool."
+}
+
 };
 
-function showIssue(type) {
-  const issue = issues[type];
+function showIssue(type){
 
-  document.getElementById("responseBox").innerHTML = `
-    <h2>${issue.title}</h2>
-    <p>${issue.text}</p>
+document.getElementById("responsePanel").innerHTML = `
 
-    <div class="actions">
-      <a class="call" href="tel:${shopPhone}">Call Northeast Auto</a>
-      <a class="text" href="sms:${shopPhone}?body=Hi,%20my%20${encodeURIComponent(issue.title)}%20came%20on.%20Can%20you%20help?">Text the Shop</a>
-      <a class="tow" href="tel:${shopPhone}">Call for Tow Help</a>
-    </div>
-  `;
+<div class="response-title">
+${issues[type].title}
+</div>
+
+<div class="response-text">
+${issues[type].text}
+</div>
+
+<div class="action-row">
+
+<a class="action-btn call-btn"
+href="tel:3305932277">
+Call Northeast Auto
+</a>
+
+<a class="action-btn text-btn"
+href="sms:3305932277?body=Hi,%20my%20${issues[type].title}%20came%20on.">
+Text The Shop
+</a>
+
+<a class="action-btn tow-btn"
+href="tel:3305932277">
+Call For Tow
+</a>
+
+</div>
+
+`;
+
 }
+
 </script>
 
 </body>
