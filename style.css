@@ -5,73 +5,107 @@ box-sizing:border-box;
 }
 
 body{
+
 background:#050505;
 font-family:Arial,sans-serif;
+overflow-x:hidden;
+
 }
 
 .hero-container{
+
 position:relative;
 width:100%;
 max-width:1400px;
 margin:auto;
+
 }
 
 .hero-image{
+
 width:100%;
 display:block;
+
 }
 
 /* HOTSPOTS */
 
 .hotspot{
+
 position:absolute;
 cursor:pointer;
 border-radius:20px;
-transition:.25s;
-}
+z-index:30;
 
-/* GLOW EFFECT */
+animation:pulseGlow 1s infinite alternate;
 
-.hotspot:hover{
-box-shadow:
-0 0 15px #ffcc00,
-0 0 25px #ff3300;
 }
 
 /* CHECK ENGINE */
 
 .engine{
-top:46%;
-left:7%;
-width:19%;
-height:13%;
+
+top:47%;
+left:5%;
+width:20%;
+height:15%;
+
 }
 
 /* OIL */
 
 .oil{
-top:46%;
-left:30%;
-width:19%;
-height:13%;
+
+top:47%;
+left:28%;
+width:20%;
+height:15%;
+
 }
 
 /* BATTERY */
 
 .battery{
-top:46%;
-left:52%;
-width:19%;
-height:13%;
+
+top:47%;
+left:51%;
+width:20%;
+height:15%;
+
 }
 
 /* TEMP */
 
 .temp{
-top:46%;
+
+top:47%;
 left:74%;
-width:19%;
-height:13%;
+width:20%;
+height:15%;
+
+}
+
+/* PULSE */
+
+@keyframes pulseGlow{
+
+from{
+
+box-shadow:
+0 0 8px rgba(255,0,0,.4),
+0 0 15px rgba(255,80,0,.5);
+
+}
+
+to{
+
+box-shadow:
+0 0 20px rgba(255,0,0,.95),
+0 0 40px rgba(255,80,0,1),
+0 0 70px rgba(255,180,0,1);
+
+}
+
 }
 
 /* RESPONSE BOX */
@@ -80,34 +114,57 @@ height:13%;
 
 position:absolute;
 
-top:67%;
-left:28%;
+top:66%;
+left:27%;
 
-width:44%;
-height:17%;
+width:46%;
+height:18%;
 
-padding:20px;
+background:
+rgba(0,0,0,.85);
 
-color:white;
+border:
+3px solid #99ff00;
+
+border-radius:20px;
+
+padding:18px;
 
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+
 text-align:center;
+
+color:white;
+
+z-index:50;
+
+backdrop-filter:blur(6px);
 
 }
 
 .response-box h2{
-color:#ff3300;
+
+font-size:
+clamp(18px,2vw,32px);
+
 margin-bottom:10px;
-font-size:clamp(18px,2vw,34px);
+
+color:#99ff00;
+
 }
 
 .response-box p{
-font-size:clamp(12px,1vw,18px);
-line-height:1.4;
+
+font-size:
+clamp(11px,1vw,18px);
+
+line-height:1.35;
+
 max-width:90%;
+
 }
 
 /* MOBILE */
@@ -115,19 +172,26 @@ max-width:90%;
 @media(max-width:768px){
 
 .response-box{
+
 top:66%;
-left:26%;
-width:48%;
+left:24%;
+width:52%;
 height:18%;
+
 padding:10px;
+
 }
 
 .response-box h2{
-font-size:14px;
+
+font-size:12px;
+
 }
 
 .response-box p{
-font-size:10px;
+
+font-size:9px;
+
 }
 
 }
