@@ -3,212 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Northeast Auto Solutions</title>
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#050505;
-    font-family:Arial,sans-serif;
-    color:white;
-}
-
-.hero-wrapper{
-    position:relative;
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-}
-
-.hero-image{
-    width:100%;
-    display:block;
-}
-
-/* CLICK ZONES */
-
-.light-zone{
-    position:absolute;
-    cursor:pointer;
-    border-radius:14px;
-    transition:.25s;
-}
-
-.light-zone:hover{
-    box-shadow:0 0 20px #ffb300;
-}
-
-/* CHECK ENGINE */
-#engineZone{
-    top:36%;
-    left:4%;
-    width:18%;
-    height:14%;
-}
-
-/* OIL */
-#oilZone{
-    top:36%;
-    left:26%;
-    width:18%;
-    height:14%;
-}
-
-/* BATTERY */
-#batteryZone{
-    top:36%;
-    left:48%;
-    width:18%;
-    height:14%;
-}
-
-/* TEMP */
-#tempZone{
-    top:36%;
-    left:70%;
-    width:18%;
-    height:14%;
-}
-
-/* RESPONSE PANEL */
-
-.response-panel{
-    position:absolute;
-    bottom:4%;
-    left:3%;
-    width:94%;
-    min-height:22%;
-    background:rgba(0,0,0,.82);
-    border:2px solid #222;
-    border-radius:18px;
-    padding:18px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.response-title{
-    font-size:clamp(18px,2vw,32px);
-    color:#ffcc00;
-    margin-bottom:10px;
-    font-weight:bold;
-}
-
-.response-text{
-    font-size:clamp(12px,1.2vw,18px);
-    line-height:1.5;
-    color:#eee;
-    margin-bottom:16px;
-}
-
-/* BUTTONS */
-
-.action-row{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.action-btn{
-    flex:1;
-    min-width:150px;
-    text-align:center;
-    padding:14px;
-    border-radius:10px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    transition:.2s;
-}
-
-.action-btn:hover{
-    transform:scale(1.03);
-}
-
-.call-btn{
-    background:#e32626;
-}
-
-.text-btn{
-    background:#444;
-}
-
-.tow-btn{
-    background:#d88900;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .response-panel{
-        bottom:2%;
-        padding:10px;
-    }
-
-    .action-row{
-        flex-direction:column;
-    }
-
-    .action-btn{
-        min-width:100%;
-        font-size:14px;
-        padding:10px;
-    }
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="hero-wrapper">
+<div class="hero-container">
 
-    <!-- YOUR IMAGE -->
     <img src="hero-dash-image.png" class="hero-image">
 
-    <!-- CLICK ZONES -->
-    <div id="engineZone" class="light-zone" onclick="showIssue('engine')"></div>
+    <!-- HOTSPOTS -->
 
-    <div id="oilZone" class="light-zone" onclick="showIssue('oil')"></div>
+    <div class="hotspot engine"
+         onclick="showResponse('engine')">
+    </div>
 
-    <div id="batteryZone" class="light-zone" onclick="showIssue('battery')"></div>
+    <div class="hotspot oil"
+         onclick="showResponse('oil')">
+    </div>
 
-    <div id="tempZone" class="light-zone" onclick="showIssue('temp')"></div>
+    <div class="hotspot battery"
+         onclick="showResponse('battery')">
+    </div>
+
+    <div class="hotspot temp"
+         onclick="showResponse('temp')">
+    </div>
 
     <!-- RESPONSE PANEL -->
+
     <div class="response-panel" id="responsePanel">
 
-        <div class="response-title">
-            Tap A Dashboard Warning Light
-        </div>
+        <h2>Tap A Dashboard Light</h2>
 
-        <div class="response-text">
-            Instant AI diagnostic guidance and next steps.
-        </div>
+        <p>
+            Instant diagnostic guidance and next steps.
+        </p>
 
-        <div class="action-row">
+        <div class="button-row">
 
-            <a class="action-btn call-btn"
-               href="tel:3305932277">
-               Call Northeast Auto
+            <a href="tel:3305932277"
+               class="action-button call">
+               Call Shop
             </a>
 
-            <a class="action-btn text-btn"
-               href="sms:3305932277">
-               Text The Shop
+            <a href="sms:3305932277"
+               class="action-button text">
+               Text Shop
             </a>
 
-            <a class="action-btn tow-btn"
-               href="tel:3305932277">
-               Call For Tow
+            <a href="tel:3305932277"
+               class="action-button tow">
+               Tow Help
             </a>
 
         </div>
@@ -217,68 +66,7 @@ body{
 
 </div>
 
-<script>
-
-const issues = {
-
-engine: {
-title: "Check Engine Warning",
-text: "Usually emissions, ignition, fuel, or sensor related. If flashing, stop driving and call immediately."
-},
-
-oil: {
-title: "Oil Pressure Warning",
-text: "Possible low oil pressure or lubrication issue. Continuing to drive may damage the engine."
-},
-
-battery: {
-title: "Battery Warning",
-text: "Charging system issue detected. Vehicle may shut off soon if alternator or battery fails."
-},
-
-temp: {
-title: "Engine Temperature Warning",
-text: "Vehicle may be overheating. Pull over safely and allow the engine to cool."
-}
-
-};
-
-function showIssue(type){
-
-document.getElementById("responsePanel").innerHTML = `
-
-<div class="response-title">
-${issues[type].title}
-</div>
-
-<div class="response-text">
-${issues[type].text}
-</div>
-
-<div class="action-row">
-
-<a class="action-btn call-btn"
-href="tel:3305932277">
-Call Northeast Auto
-</a>
-
-<a class="action-btn text-btn"
-href="sms:3305932277?body=Hi,%20my%20${issues[type].title}%20came%20on.">
-Text The Shop
-</a>
-
-<a class="action-btn tow-btn"
-href="tel:3305932277">
-Call For Tow
-</a>
-
-</div>
-
-`;
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
